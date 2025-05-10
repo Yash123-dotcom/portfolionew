@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yash Nigam|Game Developer Portfolio</title>
+  <!-- Modern gaming font: Orbitron for headings, Inter for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #10131a 60%, #1a2233 100%);
+      color: #e0e6f0;
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+      letter-spacing: 0.2px;
+    }
+    header {
+      background: #181d29 url('https://www.transparenttextures.com/patterns/cubes.png');
+      padding: 2.5rem 0 1.5rem 0;
+      text-align: center;
+      border-bottom: 4px solid #18fff6;
+      box-shadow: 0 4px 32px #18fff633;
+    }
+    header h1 {
+      font-family: 'Orbitron', Arial, sans-serif;
+      color: #18fff6;
+      font-size: 2.4rem;
+      margin: 0 0 0.5rem 0;
+      text-shadow: 0 0 12px #18fff6aa, 0 2px 0 #000;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #fff;
+      margin: 0 0 1rem 0;
+      text-shadow: 0 0 6px #0ff9, 0 1px 0 #000;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    nav {
+      margin: 1rem 0 0 0;
+    }
+    nav a {
+      color: #ff00cc;
+      background: #23283a;
+      border-radius: 5px;
+      padding: 0.5rem 1.2rem;
+      margin: 0 0.4rem;
+      text-decoration: none;
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 2px 8px #ff00cc44;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      font-weight: 700;
+    }
+    nav a:hover {
+      background: #ff00cc;
+      color: #23283a;
+      transform: scale(1.08);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 2.8rem;
+    }
+    h2 {
+      font-family: 'Orbitron', Arial, sans-serif;
+      color: #ff00cc;
+      font-size: 1.5rem;
+      margin-bottom: 1.1rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #ff00cc77;
+      font-weight: 700;
+    }
+    .about {
+      background: #23283aee;
+      border: 2px solid #18fff6;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 24px #18fff633;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1.1rem;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
+    }
+    .skill {
+      background: #181d29;
+      color: #18fff6;
+      border: 1.5px solid #18fff6;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-family: 'Orbitron', Arial, sans-serif;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 6px #18fff6aa;
+      font-weight: 600;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .project-card {
+      background: linear-gradient(120deg, #23283a 80%, #181d29 100%);
+      border: 2px solid #ff00cc;
+      border-radius: 14px;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 2px 16px #ff00cc33;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 32px #ff00cc77;
+      border-color: #18fff6;
+    }
+    .project-card video, .project-card iframe {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+      border: 2px solid #18fff6;
+      box-shadow: 0 0 16px #18fff644;
+      background: #111;
+      outline: none;
+      aspect-ratio: 16/9;
+      min-height: 200px;
+    }
+    .status {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 7px;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px #fff4;
+      border: 1.5px solid;
+      font-weight: 700;
+    }
+    .status.development {
+      color: #ff1744;
+      border-color: #ff1744;
+      background: #2a0c13;
+    }
+    .project-links a {
+      color: #18fff6;
+      margin-right: 1.2rem;
+      text-decoration: underline;
+      font-size: 1em;
+      font-family: 'Orbitron', Arial, sans-serif;
+      transition: color 0.2s;
+      font-weight: 600;
+    }
+    .project-links a:hover {
+      color: #ff00cc;
+    }
+    .case-study {
+      background: #181d29dd;
+      border-left: 3px solid #18fff6;
+      margin: 0.7rem 0;
+      padding: 0.5rem 1rem;
+      font-size: 0.97em;
+      border-radius: 6px;
+      color: #e0e6f0;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .faq {
+      background: #23283aee;
+      border: 2px solid #18fff6;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 24px #18fff633;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1.1rem;
+    }
+    .faq details {
+      margin-bottom: 1.1rem;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Orbitron', Arial, sans-serif;
+      color: #18fff6;
+      outline: none;
+      font-size: 1.07em;
+    }
+    .faq p {
+      margin: 0.5rem 0 0.5rem 1.5rem;
+      color: #e0e6f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1em;
+    }
+    .doubt-form {
+      background: #23283aee;
+      border: 2px solid #ff00cc;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 24px #ff00cc33;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .doubt-form label {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #18fff6;
+      font-family: 'Orbitron', Arial, sans-serif;
+    }
+    .doubt-form input, .doubt-form textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid #18fff6;
+      border-radius: 7px;
+      background: #181d29;
+      color: #e0e6f0;
+      font-size: 1rem;
+      font-family: 'Inter', Arial, sans-serif;
+      margin-bottom: 0.8rem;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .doubt-form input[type="submit"] {
+      background: #18fff6;
+      color: #181d29;
+      border: none;
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.7rem 2.5rem;
+      border-radius: 7px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      box-shadow: 0 2px 12px #18fff633;
+      transition: background 0.2s, color 0.2s;
+    }
+    .doubt-form input[type="submit"]:hover {
+      background: #ff00cc;
+      color: #fff;
+    }
+    .contact {
+      background: #23283aee;
+      border: 2px solid #ff00cc;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 24px #ff00cc33;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1.1rem;
+    }
+    .contact a {
+      color: #18fff6;
+      text-decoration: underline;
+      margin: 0 0.5rem;
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 1.05em;
+      transition: color 0.2s;
+      font-weight: 600;
+    }
+    .contact a:hover {
+      color: #ff00cc;
+    }
+    .cta {
+      margin: 2rem 0 0 0;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', Arial, sans-serif;
+      color: #18fff6;
+      text-align: center;
+      text-shadow: 0 0 8px #18fff655;
+      font-weight: 700;
+    }
+    @media (max-width: 900px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 0 0.5rem;
+      }
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+      nav a {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.7rem;
+      }
+      .about, .contact, .faq, .doubt-form {
+        padding: 1rem 0.5rem;
+      }
+      .project-card {
+        min-height: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Yash Nigam</h1>
+    <p>Game Developer | Programmer | Designer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#doubts">Doubt & FAQ</a>
+      <a href="#doubt-form">Ask a Doubt</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <p>
+        Welcome! I’m a passionate game developer with a love for crafting immersive worlds, tight mechanics, and unforgettable player moments. Whether it’s designing arcade shooters or fast-paced racers, I thrive on pushing the boundaries of interactive entertainment.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills & Tools</h2>
+      <div class="skills">
+        <div class="skill">Unity</div>
+        <div class="skill">C#</div>
+        <div class="skill">C++</div>
+        <div class="skill">Game UI/UX</div>
+        <div class="skill">Pixel Art</div>
+        <div class="skill">Shader Programming</div>
+        <div class="skill">Git</div>
+      </div>
+    </section>
+
+    <!-- Project completion disclaimer -->
+    <p style="color:#ffd600; font-family:'Inter', Arial, sans-serif; font-size:1.05rem; margin-bottom:1.3rem;">
+      <strong>Note:</strong> None of the games below are fully completed yet; they are all in active development or ongoing improvement.
+However, I have added a playable demo link for Space Shooter-feel free to try it out!
+The game link for Speed Dash is currently experiencing technical issues. If you’re interested, please reach out to me directly for more information. In the meantime, enjoy playing Space Shooter (demo)!
+    </p>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <!-- Project 1: Space Shooter -->
+        <div class="project-card">
+          <!-- Replace src with your actual video file or YouTube embed link -->
+          <video controls poster="https://via.placeholder.com/400x200/181d29/18fff6?text=Space+Shooter">
+            <source src="collider.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="status development">In Development 🔴</div>
+          <h3 style="color:#18fff6;font-family:'Orbitron',sans-serif;margin:0.5rem 0;">Space Shooter</h3>
+          <p>
+            A fast-paced arcade shooter set in deep space. Dodge asteroids, defeat alien fleets, and upgrade your ship to survive increasingly challenging waves.
+          </p>
+          <ul>
+            <li><b>Role:</b> Lead Programmer & Designer</li>
+            <li><b>Tech:</b> Unity, C#</li>
+            <li><b>Highlights:</b> Procedural enemy waves, power-ups, boss battles</li>
+          </ul>
+          <div class="case-study">
+            <b>Challenge:</b> Designing engaging enemy patterns.<br>
+            <b>Solution:</b> Developed a modular wave system and dynamic difficulty scaling.<br>
+            <b>Result:</b> Playtesters reported high replay value and excitement.
+          </div>
+          <div class="project-links">
+            <a href="https://yash-123.itch.io/space-shooter">Play Now</a>
+            <a href="https://github.com/Yash123-dotcom/spaceshooter">GitHub</a>
+          </div>
+        </div>
+        <!-- Project 2: Speed Dash -->
+        <div class="project-card">
+          <video controls poster="https://via.placeholder.com/400x200/181d29/ff00cc?text=Speed+Dash">
+            <source src="CarRacing.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="status development">In Development 🔴</div>
+          <h3 style="color:#ff00cc;font-family:'Orbitron',sans-serif;margin:0.5rem 0;">Speed Dash</h3>
+          <p>
+            A high-speed 2D racing game with multiple game modes and unlockable vehicles. Race through vibrant tracks and climb the leaderboards.
+          </p>
+          <ul>
+            <li><b>Role:</b> Solo Developer</li>
+            <li><b>Tech:</b> Unity, C#</li>
+            <li><b>Highlights:</b> Custom physics, online leaderboards, mobile optimization</li>
+          </ul>
+          <div class="case-study">
+            <b>Challenge:</b> Achieving smooth controls on mobile.<br>
+            <b>Solution:</b> Developed a custom touch input system and refined physics.<br>
+            <b>Result:</b> Over 5,000 downloads and positive player feedback.
+          </div>
+          <div class="project-links">
+            <a href="#">Play Now</a>
+            <a href="https://github.com/Yash123-dotcom/Carracing">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Doubt & FAQ Section -->
+    <section id="doubts" class="faq">
+      <h2>Doubt & FAQ</h2>
+      <div>
+        <details>
+          <summary><strong>Are your games fully completed?</strong></summary>
+          <p>No, none of the games in this portfolio are fully completed yet; they are all in active development or ongoing improvement.</p>
+        </details>
+        <details>
+          <summary><strong>Can I play or download your games?</strong></summary>
+          <p>Playable demos and download links will be added once the games reach a more stable state. Stay tuned for updates!</p>
+        </details>
+        <details>
+          <summary><strong>What tools and technologies do you use?</strong></summary>
+          <p>I primarily use Unity, C#, C++, and also focus on UI/UX, pixel art, shader programming, and Git for version control.</p>
+        </details>
+        <details>
+          <summary><strong>Can I collaborate or contribute to your projects?</strong></summary>
+          <p>I'm open to collaboration and feedback! Please use the contact section below to reach out.</p>
+        </details>
+        <details>
+          <summary><strong>How often do you update your portfolio?</strong></summary>
+          <p>I regularly update this portfolio with new progress, features, and projects as they develop.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Doubt Form Section -->
+    <section id="doubt-form" class="doubt-form">
+      <h2>Ask a Doubt</h2>
+      <form action="https://formsubmit.co/ynigam2004@gmail.com" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="doubt">Your Doubt / Question</label>
+        <textarea id="doubt" name="message" rows="5" required></textarea>
+
+        <!-- Autoresponse to sender -->
+        <input type="hidden" name="_autoresponse" value="Thanks for the response, we will get into it.">
+
+        <!-- Optional: Prevent spam -->
+        <input type="hidden" name="_captcha" value="false">
+        <!-- Optional: Redirect after submit -->
+        <!-- <input type="hidden" name="_next" value="https://your-portfolio-url.com/thank-you.html"> -->
+
+        <input type="submit" value="Send">
+      </form>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>
+        If you have any questions, feel free to reach out.<br>
+        <b>Phone:</b> <a href="tel:8130402049">+91 8130402049</a><br>
+        <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/yash-nigam-585ab7253/" target="_blank">Visit My LinkedIn</a>
+      </p>
+    </section>
+    <div class="cta">
+      Looking for a game developer who combines technical skill with a passion for player experience?<br>
+      <b>Let’s connect and create something amazing!</b>
+    </div>
+  </div>
+</body>
+</html>
